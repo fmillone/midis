@@ -1,0 +1,5 @@
+.gradle/
+/.idea/
+/midis.ipr
+/midis.iws
+/build/
