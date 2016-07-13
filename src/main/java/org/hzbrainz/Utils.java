@@ -12,7 +12,7 @@ public class Utils {
 
 
     public static NoteType noteFromHz(double hz){
-        int step = (int)(Math.log(hz/ C4_FREQUENCY)/Math.log(CONSTANT));
+        int step = ((int) Math.round((Math.log(hz / C4_FREQUENCY) / Math.log(CONSTANT))));
         return NoteType.C.noteFromStep(step);
     }
 

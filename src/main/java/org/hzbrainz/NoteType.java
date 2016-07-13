@@ -21,6 +21,7 @@ public enum NoteType {
     private static NoteType[] vals = NoteType.values();
 
     public NoteType noteFromStep(int step){
-        return vals[(this.ordinal()+step) % vals.length];
+        int index = (this.ordinal()+step) % vals.length;
+        return  vals[ index>=0? index : vals.length+index];
     }
 }
