@@ -1,25 +1,31 @@
 package org.hzbrainz;
 
-/**
- * Created by frank on 7/11/2016.
- */
-public enum Note {
-    A,
-    A_SHARP,
-    B,
-    C,
-    C_SHARP,
-    D,
-    D_SHARP,
-    E,
-    F,
-    F_SHARP,
-    G,
-    G_SHARP;
+public class Note {
+	private NoteType type;
+	private Integer octave;
 
-    private static Note[] vals = values();
+	private Note(NoteType type, int octave) {
+		this.type = type;
+		this.octave = octave;
+	}
+	
+	@Override
+	public String toString(){
+		return type.toString()+octave.toString();
+	}
+	
 
-    public Note noteFromStep(int step){
-        return vals[(this.ordinal()+step) % vals.length];
-    }
+	public static class Builder {
+		double hz;
+
+		public Builder(double hz) {
+			this.hz = hz;
+		}
+
+		public Note build() {
+			NoteType noteType = Utils.noteFromHz(this.hz);
+			int octave = Utils.octaveFromHz(this.hz);
+			return new Note(noteType, octave);
+		}
+	}
 }
