@@ -3,3 +3,9 @@
 /midis.ipr
 /midis.iws
 /build/
+
+/bin/
+.classpath
+.project
+.settings/
+
